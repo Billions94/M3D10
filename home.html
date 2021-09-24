@@ -13,7 +13,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-        <a class="navbar-brand" href="#"><img src="./assets/Netflix_Logo_CMYK.png" width="70"></a>
+        <a class="navbar-brand" href="home.html"><img src="./assets/Netflix_Logo_CMYK.png" width="85px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -111,7 +111,7 @@
 
         <!-- Watch it again -->
       <h4 class="pt-4">Watch it again</h4>
-      <div class="row">
+      <div id="horror" class="row">
 
 
       </div>
@@ -119,7 +119,7 @@
 
       <!-- Watch it again -->
        <h4 class="pt-5">New Releases</h4>
-      <div class="row">
+      <div id="comedy" class="row">
 
 
       </div>
@@ -223,7 +223,7 @@
 
         const apiKey = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMjJhYTRiYjUzZDAwMTViMTllZGUiLCJpYXQiOjE2MzIzMTQwMjcsImV4cCI6MTYzMzUyMzYyN30.77Yuy9DLj_tVyAeila_3MBsQRZdNMxEbAkVipEDT8CI'
 
-        const getMovies = () => {
+        const getAction = () => {
               fetch('https://striveschool-api.herokuapp.com/api/movies/action', {
                 headers: {
                   Authorization: apiKey,
@@ -238,25 +238,92 @@
                 const movieRow = document.getElementById('content')
                 console.log(movieRow)
                 movieRow.innerHTML = ''
-                const movieRowNode = document.createElement('div')
-                movieRowNode.innerHTML =  ` 
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-                  <div>${movie[0].name}</div>
-                <img class=" picture   rounded" src=${photos.url} alt="">
-                </div> `
+                data.forEach(movie => {
+                  
+                  const movieRowNode = document.createElement('div')
+                  movieRowNode.classList.add('col-3')
+                  movieRowNode.innerHTML =  ` 
+                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-2 px-1 ">
+                    <div class="">
+                    <a href="backoffice.html?id=${movie._id}"><img class="movie" src=${movie.imageUrl} alt=""></a>
+                    </div>
+                  </div> `
+  
+                  movieRow.appendChild(movieRowNode)
 
-                movieRow.appendChild(movieRowNode)
+                })
               })
               .catch(error =>{
-                
-
-
-
               })
+          }
+
+          const getHorror = () => {
+              fetch('https://striveschool-api.herokuapp.com/api/movies/horror', {
+                headers: {
+                  Authorization: apiKey,
+                }
+              })
+              .then(response => response.json())
+              .then(data => {
+
+                const movie = data
+                console.log(movie)
+                
+                const movieRow = document.getElementById('horror')
+                console.log(movieRow)
+                movieRow.innerHTML = ''
+                data.forEach(movie => {
+                  
+                  const movieRowNode = document.createElement('div')
+                  movieRowNode.classList.add('col-3')
+                  movieRowNode.innerHTML =  ` 
+                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-2 px-1 ">
+                    <div class="">
+                    <a href="backoffice.html?id=${movie._id}"><img class="movie" src=${movie.imageUrl} alt=""></a>
+                    </div>
+                  </div> `
+  
+                  movieRow.appendChild(movieRowNode)
+
+                })
+              })
+              .catch(error =>{
+              })
+          }
 
 
+          const getComedy = () => {
+              fetch('https://striveschool-api.herokuapp.com/api/movies/comedy', {
+                headers: {
+                  Authorization: apiKey,
+                }
+              })
+              .then(response => response.json())
+              .then(data => {
 
-             
+                const movie = data
+                console.log(movie)
+                
+                const movieRow = document.getElementById('comedy')
+                console.log(movieRow)
+                movieRow.innerHTML = ''
+                data.forEach(movie => {
+                  
+                  const movieRowNode = document.createElement('div')
+                  movieRowNode.classList.add('col-3')
+                  movieRowNode.innerHTML =  ` 
+                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-2 px-1 ">
+                    <div class="">
+                    <a href="backoffice.html?id=${movie._id}"><img class="movie" src=${movie.imageUrl} alt=""></a>
+                    </div>
+                  </div> `
+  
+                  movieRow.appendChild(movieRowNode)
+
+                })
+              })
+              .catch(error =>{
+              })
           }
         
 
@@ -264,7 +331,8 @@
         window.onload = () => {
 
 
-        getMovies()
+          getAction()
+
         }
     </script>
 

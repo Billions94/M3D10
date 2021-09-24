@@ -140,3 +140,13 @@ body {
   .black {
       background-color: red !important
   }
+
+  .design {
+    object-fit: cover;
+  }
+
+  .movie {
+    height: 300px;
+    
+  }
+  
