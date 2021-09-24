@@ -136,3 +136,7 @@ body {
       border-color: white;
       border-radius: 0;
   }
+
+  .black {
+      background-color: red !important
+  }

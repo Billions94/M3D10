@@ -40,6 +40,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#">My List</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="backoffice.html">B/O</a>
+            </li>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -96,77 +99,28 @@
 
 
       <h4 class="pt-4">Trending Now</h4>
-      <div class="row ">
+      <div id="content" class="row ">
         
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
           <img class=" picture   rounded" src="./assets/media/media10.jpg" alt="">
         </div> 
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media9.jpg"alt=""></div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media8.webp"alt="">
-          </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"src="./assets/media/media7.webp" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"
-            src="./assets/media/media6.jpg" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"
-            src="./assets/media/media5.webp" alt="">
-        </div>
+ 
+
       </div>
 
+
+        <!-- Watch it again -->
       <h4 class="pt-4">Watch it again</h4>
-       <!----trending now-->
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media4.jpg" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media3.webp"alt=""></div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media2.webp"alt="">
-          </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"src="./assets/media/media1.jpg" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"
-            src="./assets/media/media0.webp" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"
-            src="./assets/media/media11.jpg" alt="">
-        </div>
+
 
       </div>
 
 
-       <!----watch again-->
+      <!-- Watch it again -->
        <h4 class="pt-5">New Releases</h4>
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media12.jpg" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media13.jpg"alt=""></div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class="picture rounded" src="./assets/media/media14.webp"alt="">
-          </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"src="./assets/media/media15.jpg" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"
-            src="./assets/media/media16.webp" alt="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1  d-xl-block">
-          <img class="picture rounded"
-            src="./assets/media/media17.jpg" alt="">
-        </div>
+
 
       </div>
 
@@ -264,13 +218,54 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script>
 
+        
 
-        window.onload = async () => {
+
+        const apiKey = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMjJhYTRiYjUzZDAwMTViMTllZGUiLCJpYXQiOjE2MzIzMTQwMjcsImV4cCI6MTYzMzUyMzYyN30.77Yuy9DLj_tVyAeila_3MBsQRZdNMxEbAkVipEDT8CI'
+
+        const getMovies = () => {
+              fetch('https://striveschool-api.herokuapp.com/api/movies/action', {
+                headers: {
+                  Authorization: apiKey,
+                }
+              })
+              .then(response => response.json())
+              .then(data => {
+
+                const movie = data
+                console.log(movie)
+                
+                const movieRow = document.getElementById('content')
+                console.log(movieRow)
+                movieRow.innerHTML = ''
+                const movieRowNode = document.createElement('div')
+                movieRowNode.innerHTML =  ` 
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
+                  <div>${movie[0].name}</div>
+                <img class=" picture   rounded" src=${photos.url} alt="">
+                </div> `
+
+                movieRow.appendChild(movieRowNode)
+              })
+              .catch(error =>{
+                
 
 
-            const url = 
+
+              })
+
+
+
+             
+          }
+        
+
+
+        window.onload = () => {
+
+
+        getMovies()
         }
-
     </script>
 
 
