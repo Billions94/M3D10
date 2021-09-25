@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="D10.css">
 
-    <title>AlexFlix</title>
+    <title>NaijiFlix</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-        <a class="navbar-brand" href="home.html"><img src="./assets/Netflix_Logo_CMYK.png" width="85px"></a>
+        <a class="navbar-brand" href="home.html"><img src="./assets/Netflix_Logo_CMYK.png" width="95px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -86,10 +86,10 @@
 
       <div class="col-8 d-flex flex-row-reverse pb-2">
         <button class="btn button-gl genrebtn text-light">
-          <i class="material-icons" ></i>
+          <i class="material-icons" ><img src="./assets/4sqr.png" style="width:20px"></i>
         </button>
         <button class="btn button-gl genrebtn text-light">
-          <i class="material-icons"></i>
+          <i class="material-icons"><img src="./assets/star.png"  style="width:20px"></i>
 
         </button>
           
@@ -97,32 +97,29 @@
 
       </div>
 
-
-      <h4 class="pt-4">Trending Now</h4>
-      <div id="content" class="row ">
+      
+      <h4 class="pt-4 mb-3">Action</h4>
+      <div id="action" class="d-flex xyz">
         
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2 px-1">
-          <img class=" picture   rounded" src="./assets/media/media10.jpg" alt="">
-        </div> 
- 
 
       </div>
 
 
         <!-- Watch it again -->
-      <h4 class="pt-4">Watch it again</h4>
-      <div id="horror" class="row">
+      <h4 class="pt-4 mb-3">Horror</h4>
+      <div id="horror" class="d-flex">
 
 
       </div>
 
 
       <!-- Watch it again -->
-       <h4 class="pt-5">New Releases</h4>
-      <div id="comedy" class="row">
+       <h4 class="pt-5 mb-3">Comedy</h4>
+      <div id="comedy" class="d-flex">
 
 
       </div>
+    
 
 
 
@@ -235,7 +232,7 @@
                 const movie = data
                 console.log(movie)
                 
-                const movieRow = document.getElementById('content')
+                const movieRow = document.getElementById('action')
                 console.log(movieRow)
                 movieRow.innerHTML = ''
                 data.forEach(movie => {
@@ -243,11 +240,11 @@
                   const movieRowNode = document.createElement('div')
                   movieRowNode.classList.add('col-3')
                   movieRowNode.innerHTML =  ` 
-                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-2 px-1 ">
-                    <div class="">
-                    <a href="backoffice.html?id=${movie._id}"><img class="movie" src=${movie.imageUrl} alt=""></a>
-                    </div>
+                  <div class="card " >
+                    <a href="backoffice.html?id=${movie._id}"><img src=${movie.imageUrl} class=" movie " alt="..."></a>
                   </div> `
+
+
   
                   movieRow.appendChild(movieRowNode)
 
@@ -277,10 +274,8 @@
                   const movieRowNode = document.createElement('div')
                   movieRowNode.classList.add('col-3')
                   movieRowNode.innerHTML =  ` 
-                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-2 px-1 ">
-                    <div class="">
-                    <a href="backoffice.html?id=${movie._id}"><img class="movie" src=${movie.imageUrl} alt=""></a>
-                    </div>
+                  <div class="card " >
+                    <a href="backoffice.html?id=${movie._id}"><img src=${movie.imageUrl} class="card-img-top movie " alt="..."></a>
                   </div> `
   
                   movieRow.appendChild(movieRowNode)
@@ -312,10 +307,8 @@
                   const movieRowNode = document.createElement('div')
                   movieRowNode.classList.add('col-3')
                   movieRowNode.innerHTML =  ` 
-                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-2 px-1 ">
-                    <div class="">
-                    <a href="backoffice.html?id=${movie._id}"><img class="movie" src=${movie.imageUrl} alt=""></a>
-                    </div>
+                  <div class="card " >
+                    <a href="backoffice.html?id=${movie._id}"><img src=${movie.imageUrl} class="card-img-top movie " alt="..."></a>
                   </div> `
   
                   movieRow.appendChild(movieRowNode)
@@ -330,8 +323,9 @@
 
         window.onload = () => {
 
-
           getAction()
+          getHorror()
+          getComedy()
 
         }
     </script>

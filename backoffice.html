@@ -31,7 +31,7 @@
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark cool sticky-top">
-        <a class="navbar-brand" href="home.html"><img src="./assets/Netflix_Logo_CMYK.png" style="width:85px" alt=""> </a>
+        <a class="navbar-brand" href="home.html"><img src="./assets/Netflix_Logo_CMYK.png" style="width:95px" alt=""> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -96,7 +96,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Img-Url">Enter image url</label>
-                        <input id="Img-Url" type="text" class="form-control" required>
+                        <input id="Img-Url" type="text" class="form-control" placeholder="Enter image url"required>
                     </div><span id="spinner" class="spinner-border spinner-border-sm ml-2 d-none" role="status"
                         aria-hidden="true"></span>
                     <div class="d-flex justify-content-between">
@@ -140,10 +140,10 @@
                 console.log(movieData) 
 
                 //PREFILLING THE FORM INPUTS
-                document.getElementById("name").value 
-                document.getElementById("description").value
-                document.getElementById("category").value
-                document.getElementById("Img-Url").value 
+                document.getElementById("name").value = 
+                document.getElementById("description").value = 
+                document.getElementById("category").value = 
+                document.getElementById("Img-Url").value = 
 
                 // DOM MANIPULATION
                 document.querySelector(".subtitle").innerText = "  Edit a movie"
@@ -246,63 +246,6 @@
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-          //  HERE WE ARE EDITING THE PRODUCT FROM THE BACK OFFICE
-
-// const editProduct = async (event) => {
-          
-//           const productId = document.getElementById('id').value;
-//           console.log(productId)
-//           const url = ('https://striveschool-api.herokuapp.com/api/movies/' + movieId)
-
-//           event.preventDefault()
-
-//           let name = document.getElementById('name').value
-//           let description = document.getElementById('description').value
-//           let brand = document.getElementById('brand').value
-//           let imgUrl = document.getElementById('Img-Url').value
-//           let price = document.getElementById('price').value  
-
-//           const myObject = {
-//               name: name,
-//               description: description,
-//               brand: brand,
-//               imageUrl: imgUrl,
-//               price: parseInt(price)    
-//           }
-//           handleSubmit(productId)
-
-//           try {
-
-//           const response = await fetch((url), {
-//               method: 'PUT',
-//               body: JSON.stringify(myObject),
-//               headers: new Headers({ "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMjJhYTRiYjUzZDAwMTViMTllZGUiLCJpYXQiOjE2MzIzMTQwMjcsImV4cCI6MTYzMzUyMzYyN30.77Yuy9DLj_tVyAeila_3MBsQRZdNMxEbAkVipEDT8CI",
-//                   "Content-Type": "application/json"
-//               })
-//           })
-
-//               if(response.ok){
-//                   alert('Your product was successfully updated')
-//                   window.location.assign('home.html')
-//               } else {
-//                   alert('Something went wrong with your request')
-//               }
-//           } catch (err) {
-//               console.log(err)
-//           }
-//       }
 
 
 
